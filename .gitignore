@@ -1,0 +1,15 @@
+target
+.idea
+.project
+.settings
+.classpath
+*.iml
+*.log
+*.ipr
+*.iws
+*.ids
+logs
+appserver
+release.properties
+.DS_Store
+.springBeans
