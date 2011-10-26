@@ -22,7 +22,7 @@ public class FakeAuctionServer {
 	public static final String ITEM_ID_AS_LOGIN="auction-%s";
 	public static final String AUCTION_RESOURCE="Auction";
 	public static final String XMPP_HOSTNAME="localhost";
-	public static final String AUCTION_PASSWORD="auction1234";
+	public static final String AUCTION_PASSWORD="auction";
 	
 	private final SingleMessageListener messageListener=new SingleMessageListener();
 	
@@ -38,7 +38,7 @@ public class FakeAuctionServer {
 	
 	public void startSellingItem() throws XMPPException {
 		connection.connect();
-		  SASLAuthentication.supportSASLMechanism("PLAIN", 0);
+	//	  SASLAuthentication.supportSASLMechanism("PLAIN", 0);
 		connection.login(String.format(ITEM_ID_AS_LOGIN,itemId),AUCTION_PASSWORD,AUCTION_RESOURCE);
 		connection.getChatManager().addChatListener(new ChatManagerListener(){
 			public void chatCreated(Chat chat,boolean createdLocally)
@@ -89,7 +89,7 @@ public class FakeAuctionServer {
 		
 		public void receiveAsMessage() throws InterruptedException
 		{
-			Assert.assertThat("Message",messages.poll(5,TimeUnit.SECONDS),Matchers.is(Matchers.notNullValue()));
+			Assert.assertThat("Message",messages.poll(10,TimeUnit.SECONDS),Matchers.is(Matchers.notNullValue()));
 		}
 	}
 

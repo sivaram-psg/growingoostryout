@@ -26,7 +26,7 @@ private final ApplicationRunner application=new ApplicationRunner();
 	@After
 	public void closeApplication()
 	{
-		application.close();
+		application.stop();
 	}
 
 }

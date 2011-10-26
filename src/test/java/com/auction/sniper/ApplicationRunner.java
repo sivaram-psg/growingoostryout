@@ -27,14 +27,23 @@ public class ApplicationRunner {
 		thread.setDaemon(true);
 		thread.start();
 		driver= new AuctionSniperDriver(1000);
+		driver.showsSniperStatus("LOST");
 		
 	}
 
 	public void showSniperHasLostAuction() {
-		// TODO Auto-generated method stub
+		driver.showsSniperStatus("LOST");
 		
 	}
 
+	public void stop()
+	{
+		if(driver!=null)
+		{
+			driver.dispose();
+		}
+	}
+	
 	public void close() {
 		// TODO Auto-generated method stub
 		
